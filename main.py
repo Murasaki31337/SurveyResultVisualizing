@@ -2,6 +2,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+
 import numpy as np
 from wordcloud import WordCloud
 from scipy import stats
@@ -18,7 +19,7 @@ sns.set_palette("husl")
 # LOAD AND PREPARE DATA
 # =============================================================
 
-df = pd.read_csv(r"Новая форма.csv", encoding='utf-8')
+df = pd.read_csv("Новая форма.csv", encoding='utf-8', header=1)
 
 print("=" * 50)
 print("SURVEY DATA ANALYSIS")
@@ -26,8 +27,9 @@ print("=" * 50)
 
 print("Dataset shape:", df.shape)
 
-scenario_a_columns = df.columns[4:19]
-scenario_b_columns = df.columns[19:34]
+scenario_a_columns = df.columns[4:19]   # Columns 4–18 inclusive (Scenario A)
+scenario_b_columns = df.columns[21:36]  # Columns 21–35 inclusive (Scenario B)
+
 
 print(f"Scenario A: {len(scenario_a_columns)} questions")
 print(f"Scenario B: {len(scenario_b_columns)} questions")
